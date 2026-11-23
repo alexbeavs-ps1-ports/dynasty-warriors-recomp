@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Dynasty Warriors"
+id = "SLES-00885"
+players = 1
+exe = "disc/SLES_008.85"
+disc = "disc/Dynasty Warriors (Europe).cue"
+discs = ["disc/Dynasty Warriors (Europe).cue"]
+disc_serials = ["SLES-00885"]
+load_address = "0x80010000"
+entry_pc = "0x80077240"
+text_size = "0x0009A000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Dynasty Warriors (Europe).bin"
+cue_name = "Dynasty Warriors (Europe).cue"
+boot_exe = "SLES_008.85"
+known_sizes = [531504960]
+known_md5 = [
+  "67739b05782c59dc75d0d1c28128a851",
+]
+known_sha1 = [
+  "a85552b7544f78de36313a8a066b4c3133df6ec6",
+]
+known_crc32 = [
+  "eba0f7a5",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH5552.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Dynasty Warriors Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "e1af11bbecc92f93a2f3500cea454ac7ba029bc06f0092e025658aabfe1d7984"

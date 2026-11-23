@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "dynasty-warriors-psx",
+  "name": "Dynasty Warriors",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "dynasty-warriors-recomp",
+  "rom_identity": {
+    "crc32": [
+      "eba0f7a5"
+    ],
+    "md5": [
+      "67739b05782c59dc75d0d1c28128a851"
+    ],
+    "sha1": [
+      "a85552b7544f78de36313a8a066b4c3133df6ec6"
+    ],
+    "disc_serials": [
+      "SLES-00885"
+    ],
+    "sizes": [
+      531504960
+    ],
+    "filenames": [
+      "Dynasty Warriors (Europe).cue",
+      "Dynasty Warriors (Europe).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "e1af11bbecc92f93a2f3500cea454ac7ba029bc06f0092e025658aabfe1d7984"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH5552.BIN",
+    "profile": "SCPH5552",
+    "crc32": [
+      "d786f0b9"
+    ],
+    "md5": [
+      "32736f17079d0b2b7024407c39bd3050"
+    ],
+    "sha1": [
+      "f6bc2d1f5eb6593de7d089c425ac681d6fffd3f0"
+    ],
+    "sha256": [
+      "1faaa18fa820a0225e488d9f086296b8e6c46df739666093987ff7d8fd352c09"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH5552.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/dynasty-warriors-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "dynasty-warriors-*-windows-x64.zip",
+      "linux-x64": "dynasty-warriors-*-linux-x64.zip",
+      "macos-arm64": "dynasty-warriors-*-macos-arm64.zip",
+      "macos-x64": "dynasty-warriors-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "dynasty_warriors.exe",
+    "linux": "dynasty_warriors",
+    "macos": "dynasty_warriors"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/dynasty-warriors-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}
